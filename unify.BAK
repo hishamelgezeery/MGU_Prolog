@@ -9,6 +9,9 @@ unify(A,B) :- unify1(A,B).
 %case where the two terms are exactly equal, true is returned.
 unify1(X,Y):- X==Y.
 
+%two variables unify:
+unify1(X,Y) :- var(X), var(Y), X=Y. % The substitution
+
 % this matches the case when a variable is unified a non-variable.
 % a check is done to ensure that the variable X is not part of the term Y, thus avoiding infinite loops
 % and therefore generating the most general unifier.
